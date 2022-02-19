@@ -1,43 +1,23 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useRef} from "react";
 import "./assets/css/tailwind.css"
-import Image from "./components/Image";
+import Images from "./components/Images";
 
 function App(){
 
     const [data,setData] = useState("Hello World");
-    const [toggle,setToggle] = useState(false);
-    const [didMount,setDidMount] = useState(false);
-
-    function handleClick(){
-        setToggle(!toggle);
-        setData(data == "Hello sss" ? "Hello World" : "Hello sss");
-    }
-
-    useEffect(() => {
-        if(didMount){
-            console.log('on update')
-        }
-    },[toggle]);
-
-    useEffect(() => {
-        setDidMount(true);
-    },[]);
-
+    const checkRef = useRef(null);
 
     return (
-        <div>
-            <div  className="bg-gray-600 text-white p-5 border">
-                <h1>{data}</h1>
+        <section className="flex justify-center">
+            <div className="w-10/12">
+                <div className="text-center">
+                    <div className="my-4">
+                        {data}
+                    </div>
+                </div>
+                <Images />
             </div>
-            <div>
-                {
-                    toggle == true ?
-                        <Image />
-                        : null
-                }
-                <button onClick={handleClick}>Click</button>
-            </div>
-        </div>
+        </section>
     )
 }
 
@@ -78,7 +58,7 @@ function App(){
 //                 <div>
 //                     {
 //                         this.state.toggle == true ?
-//                             <Image />
+//                             <Images />
 //                             : null
 //                     }
 //                     <button onClick={this.handleClick}>Click</button>
