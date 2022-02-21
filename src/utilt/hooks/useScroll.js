@@ -4,7 +4,6 @@ export default function useScroll(){
     const [scrollPosition,setScrollPosition] = useState(null);
 
     function handleScroll(){
-        console.log(window.scrollY)
         setScrollPosition(window.scrollY)
     }
 
